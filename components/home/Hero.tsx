@@ -21,7 +21,7 @@ export function Hero() {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-[100svh] flex flex-col justify-center px-6 md:px-10 overflow-hidden"
+      className="relative min-h-[100svh] flex flex-col justify-center px-6 md:px-10 pt-20 md:pt-0 overflow-hidden"
     >
       <div
         className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[70vw] h-[70vw] max-w-[900px] max-h-[900px] rounded-full opacity-[0.08] blur-[120px]"

@@ -3,12 +3,12 @@ import { display, body } from "@/lib/fonts";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("http://localhost:3000"),
+  metadataBase: new URL("https://itsaddyon.vercel.app"),
   title: "Adarsh Arya",
   description:
     "Adarsh Arya — Systems & Applied ML Engineer. B.Tech Computer Science, Roorkee Institute of Technology. Creator of IRIS, MediBridge, AEGIS, and SidekickAI.",
   icons: {
-    icon: "/favicon.ico",
+    icon: "/images/favicon.png?v=2",
     apple: "/icon-192.png",
   },
   openGraph: {

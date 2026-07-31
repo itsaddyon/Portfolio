@@ -56,6 +56,7 @@ export function WorkIndex({ projects }: { projects: Project[] }) {
                 width={256}
                 height={160}
                 className="w-full h-full object-contain"
+                priority
               />
             </motion.div>
           </AnimatePresence>

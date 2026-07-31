@@ -55,6 +55,7 @@ export function RecognitionIndex({ items }: { items: RecognitionItem[] }) {
                 height={144}
                 className="w-full h-full object-cover"
                 onError={() => setImageError(true)}
+                priority
               />
             </div>
           ) : (
@@ -92,9 +93,21 @@ export function RecognitionIndex({ items }: { items: RecognitionItem[] }) {
           onMouseLeave={() => setActive(null)}
         >
           <div className="flex items-baseline justify-between gap-6">
-            <div>
+            <div className="w-full">
               <p className="type-subhead text-ink text-lg md:text-xl">{item.title}</p>
               <p className="type-subhead text-ink-faint text-sm mt-1 max-w-prose">{item.detail}</p>
+              {item.image && (
+                <div className="mt-4 w-full aspect-[16/9] max-w-sm rounded-lg overflow-hidden border border-line bg-canvas md:hidden relative">
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 320px"
+                    className="object-cover"
+                    priority
+                  />
+                </div>
+              )}
             </div>
             <span className="type-label text-ink-faint group-hover:text-ink transition-colors duration-300 shrink-0 hidden md:block">
               LinkedIn →

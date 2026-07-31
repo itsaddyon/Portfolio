@@ -60,27 +60,39 @@ export function ProjectRow({
         />
 
         <Magnetic strength={6}>
-          <div className="flex items-baseline gap-6 md:gap-10">
-            <span className="type-label text-ink-faint hidden md:block w-8">
-              {String(index + 1).padStart(2, "0")}
-            </span>
+          <div className="flex items-center justify-between gap-4 md:gap-10">
+            <div className="flex items-baseline gap-6 md:gap-10 flex-1 min-w-0">
+              <span className="type-label text-ink-faint hidden md:block w-8">
+                {String(index + 1).padStart(2, "0")}
+              </span>
 
-            <div className="flex-1 min-w-0">
-              <div className="flex flex-wrap items-baseline gap-x-5 gap-y-2">
-                <h3 className="type-headline text-4xl md:text-6xl text-ink">
-                  {project.name}
-                </h3>
-                <span className={`type-label ${accent.text}`}>{project.tagline}</span>
+              <div className="flex-1 min-w-0">
+                <div className="flex flex-wrap items-baseline gap-x-5 gap-y-2">
+                  <h3 className="type-headline text-3xl md:text-6xl text-ink">
+                    {project.name}
+                  </h3>
+                  <span className={`type-label ${accent.text}`}>{project.tagline}</span>
+                </div>
+                <motion.p
+                  className="type-subhead mt-3 max-w-prose overflow-hidden text-sm md:text-base"
+                  initial={false}
+                  animate={{ opacity: hovered ? 1 : 0.55 }}
+                  transition={{ duration: 0.4 }}
+                >
+                  {project.summary}
+                </motion.p>
               </div>
-              <motion.p
-                className="type-subhead mt-3 max-w-prose overflow-hidden"
-                initial={false}
-                animate={{ opacity: hovered ? 1 : 0.55 }}
-                transition={{ duration: 0.4 }}
-              >
-                {project.summary}
-              </motion.p>
             </div>
+
+            {project.logo && (
+              <div className="w-14 h-14 rounded-lg border border-line bg-canvas-raised flex items-center justify-center p-2 md:hidden shrink-0">
+                <img
+                  src={project.logo}
+                  alt={project.name}
+                  className="w-full h-full object-contain"
+                />
+              </div>
+            )}
 
             <motion.span
               className="type-label text-ink hidden md:block"

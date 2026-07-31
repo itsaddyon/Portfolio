@@ -7,6 +7,7 @@ import { WorkIndex } from "@/components/work/WorkIndex";
 import { RecognitionIndex } from "@/components/home/RecognitionIndex";
 import { CapabilitiesGrid } from "@/components/home/CapabilitiesGrid";
 import { GitHubActivity } from "@/components/home/GitHubActivity";
+import { CertificateCard } from "@/components/home/CertificateCard";
 import { projects } from "@/lib/projects";
 
 const capabilities = [
@@ -246,45 +247,7 @@ export default function Home() {
             <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
               {certifications.map((cert, i) => (
                 <RevealText key={cert.title} delay={i * 0.06}>
-                  <a
-                    href={cert.link}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="group block border border-line rounded-xl overflow-hidden hover:border-ink-faint transition-colors duration-300"
-                  >
-                    <div className="aspect-[4/3] bg-canvas-raised relative overflow-hidden">
-                      {cert.pdf ? (
-                        <iframe
-                          src={`${cert.pdf}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`}
-                          title={cert.title}
-                          className="absolute inset-0 w-full h-full border-0 pointer-events-none"
-                          loading="lazy"
-                        />
-                      ) : "image" in cert && cert.image ? (
-                        <Image
-                          src={cert.image}
-                          alt={cert.title}
-                          fill
-                          sizes="(max-width: 768px) 50vw, 33vw"
-                          className="absolute inset-0 w-full h-full object-cover"
-                        />
-                      ) : (
-                        <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
-                          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" className="text-ink opacity-30">
-                            <circle cx="12" cy="12" r="10" />
-                            <path d="M2 12h20M12 2a15.3 15.3 0 0 1 0 20M12 2a15.3 15.3 0 0 0 0 20" />
-                          </svg>
-                          <span className="type-label text-ink text-xs opacity-30">View profile →</span>
-                        </div>
-                      )}
-                    </div>
-                    <div className="p-5">
-                      <p className="type-subhead text-ink text-sm leading-snug group-hover:opacity-80 transition-opacity duration-300">
-                        {cert.title}
-                      </p>
-                      <p className="type-label text-ink-faint mt-2">{cert.issuer}</p>
-                    </div>
-                  </a>
+                  <CertificateCard cert={cert} />
                 </RevealText>
               ))}
             </div>

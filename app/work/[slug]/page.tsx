@@ -16,7 +16,24 @@ export function generateStaticParams() {
 
 export function generateMetadata({ params }: { params: { slug: string } }) {
   const project = getProject(params.slug);
-  return { title: project ? `${project.name} — Adarsh Arya` : "Not found" };
+  if (!project) return { title: "Not Found — Adarsh Arya" };
+  return {
+    title: `${project.name} | Adarsh Arya`,
+    description: project.summary,
+    openGraph: {
+      title: `${project.name} | Adarsh Arya`,
+      description: project.summary,
+      type: "article",
+      images: [
+        {
+          url: "/og-image.png",
+          width: 1200,
+          height: 630,
+          alt: `${project.name} case study overview`,
+        },
+      ],
+    },
+  };
 }
 
 export default function CaseStudyPage({ params }: { params: { slug: string } }) {
