@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { display, body } from "@/lib/fonts";
-import { Analytics } from "@vercel/analytics/react";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 export const metadata: Metadata = {
