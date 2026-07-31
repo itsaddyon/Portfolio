@@ -1,0 +1,127 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+  Foundations: this file sets the quiet defaults everything else inherits.
+  Nothing here should call attention to itself.
+*/
+
+:root {
+  --font-display: "Fraunces", serif;
+  --font-body: "Inter", sans-serif;
+}
+
+* {
+  border-color: theme("colors.line");
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+body {
+  background-color: theme("colors.canvas");
+  color: theme("colors.ink");
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background-color: theme("colors.ink");
+  color: theme("colors.canvas");
+}
+
+/* Hairline focus ring, not a glow-box */
+:focus-visible {
+  outline: 1px solid theme("colors.ink");
+  outline-offset: 4px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: theme("colors.canvas");
+}
+::-webkit-scrollbar-thumb {
+  background: theme("colors.line");
+  border-radius: 999px;
+}
+
+/* Typography scale used across the site — headline, subhead, body, label */
+.type-headline {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 0.98;
+}
+.type-subhead {
+  font-family: var(--font-body);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  color: theme("colors.ink-muted");
+}
+.type-label {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: theme("colors.ink-faint");
+}
+
+/* Cinematic framing for the background — darkens edges, never the center */
+.vignette {
+  background: radial-gradient(
+    ellipse at center,
+    transparent 40%,
+    rgba(10, 10, 11, 0.55) 100%
+  );
+}
+
+/* A whisper of color behind the constellation — flat black reads as
+   "empty", not "premium". This is what makes it feel lit from within
+   instead of dead. Extremely subtle and near-static on purpose. */
+.atmosphere {
+  background:
+    radial-gradient(60% 50% at 20% 15%, rgba(120, 100, 200, 0.05), transparent 60%),
+    radial-gradient(50% 45% at 85% 75%, rgba(200, 140, 80, 0.04), transparent 60%);
+  animation: atmosphere-drift 40s ease-in-out infinite alternate;
+}
+
+@keyframes atmosphere-drift {
+  0% { opacity: 0.7; }
+  100% { opacity: 1; }
+}
+
+/* Hide the system cursor when the custom cursor is active. */
+.custom-cursor-enabled,
+.custom-cursor-enabled *,
+.custom-cursor-enabled *::before,
+.custom-cursor-enabled *::after {
+  cursor: none !important;
+}
+
+
+/* Film grain — a subtle animated noise layer over the whole page. Cheap,
+   but it's most of the difference between "clean" and "cinematic". The
+   SVG turbulence is generated once as a data URI; the flicker comes from
+   jumping the background position every frame, not from regenerating
+   the noise itself. */
+.grain {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  opacity: 0.035;
+  mix-blend-mode: overlay;
+  animation: grain-shift 0.5s steps(2) infinite;
+}
+
+@keyframes grain-shift {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(-2%, 1%); }
+  100% { transform: translate(1%, -2%); }
+}
