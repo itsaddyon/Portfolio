@@ -2,7 +2,7 @@ import { MetadataRoute } from "next";
 import { projects } from "@/lib/projects";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://itsaddyon.vercel.app";
+  const baseUrl = "https://itsaddyon.dev";
 
   // Homepage static route
   const routes = [

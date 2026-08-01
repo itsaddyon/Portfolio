@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://itsaddyon.vercel.app/sitemap.xml",
+    sitemap: "https://itsaddyon.dev/sitemap.xml",
   };
 }

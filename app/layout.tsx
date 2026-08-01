@@ -4,7 +4,7 @@ import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://itsaddyon.vercel.app"),
+  metadataBase: new URL("https://itsaddyon.dev"),
   title: "Adarsh Arya",
   description:
     "Adarsh Arya — Systems & Applied ML Engineer. B.Tech Computer Science, Roorkee Institute of Technology. Creator of IRIS, MediBridge, AEGIS, and SidekickAI.",
