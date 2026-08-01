@@ -67,11 +67,11 @@ body {
 }
 .type-label {
   font-family: var(--font-body);
-  font-weight: 500;
+  font-weight: 600;
   font-size: 0.75rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: theme("colors.ink-faint");
+  color: theme("colors.ink-muted");
 }
 
 /* Cinematic framing for the background — darkens edges, never the center */

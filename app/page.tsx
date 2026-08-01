@@ -138,7 +138,7 @@ export default function Home() {
       <section id="about" className="px-6 md:px-10 pt-28 md:pt-40 pb-20 md:pb-28">
         <SectionStage>
           <div className="mx-auto max-w-editorial grid md:grid-cols-[auto_1fr] gap-6 md:gap-16">
-            <p className="type-label text-ink-faint">About</p>
+            <p className="type-label text-ink-muted">About</p>
             <div className="space-y-8 max-w-prose">
               <RevealText as="p" className="type-subhead text-lg md:text-xl leading-relaxed">
                 Hey! I'm a 1st Year B.Tech Computer Science student at Roorkee Institute of Technology. My work sits at the intersection of applied machine learning, systems engineering, and real-world deployment — building infrastructure that operates under constraint: intermittent connectivity, embedded hardware, multi-role access control, and latency requirements that don&apos;t bend.
@@ -166,7 +166,7 @@ export default function Home() {
       <section className="px-6 md:px-10 pb-28 md:pb-40">
         <SectionStage>
           <div className="mx-auto max-w-editorial grid md:grid-cols-[auto_1fr] gap-6 md:gap-16">
-            <p className="type-label text-ink-faint">Philosophy</p>
+            <p className="type-label text-ink-muted">Philosophy</p>
             <div className="space-y-8 max-w-prose">
               <RevealText as="p" className="type-subhead text-lg md:text-xl leading-relaxed">
                 I never start with a programming language.<br></br>

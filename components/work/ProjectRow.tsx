@@ -24,23 +24,34 @@ export function ProjectRow({
   onHover?: (project: Project | null) => void;
 }) {
   const [hovered, setHovered] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const accent = accentClasses[project.accent];
 
   const enter = () => {
+    if (isMobile) return;
     setHovered(true);
     onHover?.(project);
     setHoverAccent(accent.glow);
   };
   const leave = () => {
+    if (isMobile) return;
     setHovered(false);
     onHover?.(null);
     setHoverAccent(null);
   };
 
-  // Guards against navigating away mid-hover (click fires before
-  // mouseleave in some cases), which would otherwise leave the
-  // constellation tinted after the row itself is gone.
-  useEffect(() => () => setHoverAccent(null), []);
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.matchMedia("(max-width: 768px)").matches);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    
+    return () => {
+      setHoverAccent(null);
+      window.removeEventListener("resize", checkMobile);
+    };
+  }, []);
 
   return (
     <Link href={`/work/${project.slug}`} className="block" data-cursor="View">
@@ -76,7 +87,7 @@ export function ProjectRow({
                 <motion.p
                   className="type-subhead mt-3 max-w-prose overflow-hidden text-sm md:text-base"
                   initial={false}
-                  animate={{ opacity: hovered ? 1 : 0.55 }}
+                  animate={{ opacity: isMobile ? 0.95 : (hovered ? 1 : 0.55) }}
                   transition={{ duration: 0.4 }}
                 >
                   {project.summary}

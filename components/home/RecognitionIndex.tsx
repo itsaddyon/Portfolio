@@ -95,7 +95,7 @@ export function RecognitionIndex({ items }: { items: RecognitionItem[] }) {
           <div className="flex items-baseline justify-between gap-6">
             <div className="w-full">
               <p className="type-subhead text-ink text-lg md:text-xl">{item.title}</p>
-              <p className="type-subhead text-ink-faint text-sm mt-1 max-w-prose">{item.detail}</p>
+              <p className="type-subhead text-ink-muted text-sm mt-1 max-w-prose">{item.detail}</p>
               {item.image && (
                 <div className="mt-4 w-full aspect-[16/9] max-w-sm rounded-lg overflow-hidden border border-line bg-canvas md:hidden relative">
                   <Image

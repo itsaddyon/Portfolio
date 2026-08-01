@@ -19,8 +19,8 @@ const config: Config = {
 
         "canvas-raised": "#111113",
         ink: "#F5F4F1",
-        "ink-muted": "#8C8B87",
-        "ink-faint": "#5A5A58",
+        "ink-muted": "#B2B0AB",
+        "ink-faint": "#7E7C78",
         line: "#1D1D1F",
         gold: "#c5a880",
         "gold-bright": "#e8d5b5",

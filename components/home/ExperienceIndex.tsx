@@ -117,7 +117,7 @@ export function ExperienceIndex({ items }: { items: ExperienceItem[] }) {
                       Profile →
                     </span>
                   </div>
-                  <p className="type-subhead text-ink-faint text-sm mt-1 max-w-prose group-hover:text-ink-faint transition-colors duration-300">
+                  <p className="type-subhead text-ink-muted text-sm mt-1 max-w-prose group-hover:text-ink transition-colors duration-300">
                     {item.detail}
                   </p>
                   {item.image && (
@@ -149,7 +149,7 @@ export function ExperienceIndex({ items }: { items: ExperienceItem[] }) {
               <p className="type-subhead text-ink text-lg md:text-xl">
                 {item.role} <span className="text-ink-faint">— {item.org}</span>
               </p>
-              <p className="type-subhead text-ink-faint text-sm mt-1 max-w-prose">{item.detail}</p>
+              <p className="type-subhead text-ink-muted text-sm mt-1 max-w-prose">{item.detail}</p>
             </div>
           </div>
         );
