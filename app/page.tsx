@@ -8,6 +8,7 @@ import { RecognitionIndex } from "@/components/home/RecognitionIndex";
 import { CapabilitiesGrid } from "@/components/home/CapabilitiesGrid";
 import { GitHubActivity } from "@/components/home/GitHubActivity";
 import { CertificateCard } from "@/components/home/CertificateCard";
+import { ExperienceIndex } from "@/components/home/ExperienceIndex";
 import { projects } from "@/lib/projects";
 
 const capabilities = [
@@ -68,6 +69,8 @@ const experience = [
     org: "GDGoC RIT (Google Developer Groups on Campus)",
     period: "2025 — Present",
     detail: "Organizing and Hosting Technical Events under Google Developers Group",
+    link: "https://gdg.community.dev/u/mzwsvd/#/about",
+    image: "/images/rec-gdg.png",
   },
   {
     role: "Project Lead & Backend Developer",
@@ -207,22 +210,7 @@ export default function Home() {
             <RevealText as="p" className="type-label mb-16">
               Experience
             </RevealText>
-            <div className="border-t border-line">
-              {experience.map((e) => (
-                <div
-                  key={e.role}
-                  className="border-b border-line py-8 flex flex-col md:flex-row md:items-baseline gap-2 md:gap-10"
-                >
-                  <span className="type-label text-ink-faint w-32 shrink-0">{e.period}</span>
-                  <div>
-                    <p className="type-subhead text-ink text-lg md:text-xl">
-                      {e.role} <span className="text-ink-faint">— {e.org}</span>
-                    </p>
-                    <p className="type-subhead text-ink-faint text-sm mt-1 max-w-prose">{e.detail}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
+            <ExperienceIndex items={experience} />
           </div>
         </SectionStage>
       </section>
