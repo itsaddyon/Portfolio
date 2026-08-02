@@ -138,7 +138,7 @@ export default function Home() {
       <section id="about" className="px-6 md:px-10 pt-28 md:pt-40 pb-20 md:pb-28">
         <SectionStage>
           <div className="mx-auto max-w-editorial grid md:grid-cols-[auto_1fr] gap-6 md:gap-16">
-            <p className="type-label text-ink-muted"><b>About</b></p>
+            <h2 className="font-display text-2xl md:text-3xl text-gold font-normal tracking-wide">About</h2>
             <div className="space-y-8 max-w-prose">
               <RevealText as="p" className="type-subhead text-lg md:text-xl leading-relaxed">
                 Hey! I'm a 1st Year B.Tech Computer Science student at Roorkee Institute of Technology. My work sits at the intersection of applied machine learning, systems engineering, and real-world deployment — building infrastructure that operates under constraint: intermittent connectivity, embedded hardware, multi-role access control, and latency requirements that don&apos;t bend.
@@ -166,7 +166,7 @@ export default function Home() {
       <section className="px-6 md:px-10 pb-28 md:pb-40">
         <SectionStage>
           <div className="mx-auto max-w-editorial grid md:grid-cols-[auto_1fr] gap-6 md:gap-16">
-            <p className="type-label text-ink-muted"><b>Philosophy</b></p>
+            <h2 className="font-display text-2xl md:text-3xl text-gold font-normal tracking-wide">Philosophy</h2>
             <div className="space-y-8 max-w-prose">
               <RevealText as="p" className="type-subhead text-lg md:text-xl leading-relaxed">
                 I never start with a programming language.<br></br>
@@ -193,11 +193,31 @@ export default function Home() {
         </SectionStage>
       </section>
 
+      <section id="status" className="px-6 md:px-10 pb-20 md:pb-28 border-t border-line pt-20 md:pt-28">
+        <SectionStage>
+          <div className="mx-auto max-w-editorial grid md:grid-cols-[auto_1fr] gap-6 md:gap-16">
+            <h2 className="font-display text-2xl md:text-3xl text-gold font-normal tracking-wide">Status</h2>
+            <div className="space-y-6 max-w-prose">
+              <div className="flex items-center gap-3">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-gold/40 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-gold"></span>
+                </span>
+                <span className="type-label text-gold-bright font-semibold tracking-widest uppercase text-[10px]">Currently working on</span>
+              </div>
+              <RevealText as="p" className="type-subhead text-lg md:text-xl leading-relaxed text-ink-muted">
+                Currently drafting a research paper for <strong className="text-ink font-semibold">IRIS</strong> (Intelligent Road Inspection System), detailing its real-time computer vision pipeline and municipal review workflow. The project is open-access and published on Zenodo (<a href="https://doi.org/10.5281/zenodo.20868862" target="_blank" rel="noopener noreferrer" className="text-gold hover:text-gold-bright transition-colors duration-300 border-b border-gold/40 pb-0.5">doi.org/10.5281/zenodo.20868862</a>). Simultaneously, building user interfaces for AI products as a Front-End AI Engineering Intern at <strong className="text-ink font-semibold">FlyRank AI</strong>.
+              </RevealText>
+            </div>
+          </div>
+        </SectionStage>
+      </section>
+
       <section id="work" className="px-6 md:px-10 pb-28 md:pb-40 border-t border-line pt-20 md:pt-28">
         <SectionStage>
           <div className="mx-auto max-w-editorial">
-            <RevealText as="p" className="type-label mb-16">
-              <b>Selected work</b>
+            <RevealText as="h2" className="font-display text-3xl md:text-4xl text-gold font-normal tracking-wide mb-16">
+              Selected Work
             </RevealText>
             <WorkIndex projects={projects} />
           </div>
@@ -207,8 +227,8 @@ export default function Home() {
       <section id="experience" className="px-6 md:px-10 pb-28 md:pb-40 border-t border-line pt-20 md:pt-28">
         <SectionStage>
           <div className="mx-auto max-w-editorial">
-            <RevealText as="p" className="type-label mb-16">
-              <b>Experience</b>
+            <RevealText as="h2" className="font-display text-3xl md:text-4xl text-gold font-normal tracking-wide mb-16">
+              Experience
             </RevealText>
             <ExperienceIndex items={experience} />
           </div>
@@ -218,8 +238,8 @@ export default function Home() {
       <section id="recognition" className="px-6 md:px-10 pb-28 md:pb-40">
         <SectionStage>
           <div className="mx-auto max-w-editorial">
-            <RevealText as="p" className="type-label mb-16">
-              <b>Recognition</b>
+            <RevealText as="h2" className="font-display text-3xl md:text-4xl text-gold font-normal tracking-wide mb-16">
+              Recognition
             </RevealText>
             <RecognitionIndex items={recognition} />
           </div>
@@ -229,8 +249,8 @@ export default function Home() {
       <section className="px-6 md:px-10 pb-28 md:pb-40 border-t border-line pt-20 md:pt-28">
         <SectionStage>
           <div className="mx-auto max-w-editorial">
-            <RevealText as="p" className="type-label mb-16">
-              <b>Certifications</b>
+            <RevealText as="h2" className="font-display text-3xl md:text-4xl text-gold font-normal tracking-wide mb-16">
+              Certifications
             </RevealText>
             <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
               {certifications.map((cert, i) => (
@@ -246,8 +266,8 @@ export default function Home() {
       <section id="capabilities" className="px-6 md:px-10 pb-28 md:pb-40 border-t border-line pt-20 md:pt-28">
         <SectionStage>
           <div className="mx-auto max-w-editorial">
-            <RevealText as="p" className="type-label mb-16">
-              <b>Capabilities</b>
+            <RevealText as="h2" className="font-display text-3xl md:text-4xl text-gold font-normal tracking-wide mb-16">
+              Capabilities
             </RevealText>
             <CapabilitiesGrid capabilities={capabilities} />
           </div>

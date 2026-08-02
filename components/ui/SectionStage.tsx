@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 /**
@@ -8,13 +8,8 @@ import { motion, useScroll, useTransform } from "framer-motion";
  * as the hero: content scales down and fades out as you scroll past it,
  * then snaps back when you scroll up. Feels like a camera pulling back.
  *
- * Usage: wrap a section's inner content (not the <section> itself):
- *
- *   <section>
- *     <SectionStage>
- *       <p>content</p>
- *     </SectionStage>
- *   </section>
+ * Disables the effect on mobile screens where sections stack and become
+ * taller than the viewport, preventing content from fading out prematurely.
  */
 export function SectionStage({
   children,
@@ -27,6 +22,14 @@ export function SectionStage({
   intensity?: number;
 }) {
   const ref = useRef<HTMLDivElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -35,21 +38,21 @@ export function SectionStage({
     offset: ["start end", "end start"],
   });
 
-  // Fade out + compress as the section exits upward
+  // Fade out + compress as the section exits upward (gentler and later on mobile)
   const scale = useTransform(
     scrollYProgress,
-    [0.6, 1],
-    [1, 1 - 0.06 * intensity]
+    isMobile ? [0.85, 1] : [0.6, 1],
+    isMobile ? [1, 1 - 0.04 * intensity] : [1, 1 - 0.06 * intensity]
   );
   const opacity = useTransform(
     scrollYProgress,
-    [0.55, 0.9],
+    isMobile ? [0.8, 0.98] : [0.55, 0.9],
     [1, 0]
   );
   const y = useTransform(
     scrollYProgress,
-    [0.6, 1],
-    [0, -30 * intensity]
+    isMobile ? [0.85, 1] : [0.6, 1],
+    isMobile ? [0, -20 * intensity] : [0, -30 * intensity]
   );
 
   return (

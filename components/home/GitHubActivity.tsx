@@ -71,8 +71,8 @@ export function GitHubActivity({ username }: { username: string }) {
 
   return (
     <div>
-      <div className="flex items-baseline justify-between mb-8 border-b border-line pb-4">
-        <RevealText as="h2" className="type-headline text-lg md:text-xl font-light text-ink uppercase tracking-wider">
+      <div className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-16 gap-4">
+        <RevealText as="h2" className="font-display text-3xl md:text-4xl text-gold font-normal tracking-wide">
           GitHub Activity
         </RevealText>
         {!loading && totalContribs > 0 && (

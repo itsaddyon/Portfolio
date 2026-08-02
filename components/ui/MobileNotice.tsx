@@ -34,7 +34,7 @@ export function MobileNotice() {
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
           className="fixed bottom-6 left-4 right-4 z-50 md:hidden"
         >
-          <div className="bg-canvas-raised border border-line rounded-2xl p-4 flex items-start gap-4 shadow-2xl backdrop-blur-sm">
+          <div className="bg-[#0A0A0B]/75 border border-gold/20 rounded-2xl p-4 flex items-start gap-4 shadow-[0_12px_40px_rgba(0,0,0,0.5)] backdrop-blur-md">
             {/* Animated desktop icon */}
             <div className="shrink-0 relative w-10 h-10 flex items-center justify-center">
               <motion.div

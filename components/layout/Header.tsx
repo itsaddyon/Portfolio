@@ -73,7 +73,7 @@ export function Header() {
         transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
         className={clsx(
           "fixed top-0 inset-x-0 z-20",
-          scrolled && "backdrop-blur-sm bg-canvas/60 border-b border-line/40"
+          scrolled && "backdrop-blur-md bg-[#0A0A0B]/70 border-b border-gold/10"
         )}
       >
         <div className="mx-auto max-w-editorial px-6 md:px-10 py-5 flex items-center justify-between gap-6">
@@ -150,7 +150,7 @@ export function Header() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
               onClick={() => setOpen(false)}
-              className="fixed inset-0 z-30 bg-canvas/80 backdrop-blur-sm md:hidden"
+              className="fixed inset-0 z-30 bg-black/70 backdrop-blur-md md:hidden"
             />
 
             {/* Drawer panel */}
@@ -160,7 +160,7 @@ export function Header() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              className="fixed top-0 right-0 bottom-0 z-40 w-72 bg-canvas border-l border-line flex flex-col px-8 pt-24 pb-12 md:hidden"
+              className="fixed top-0 right-0 bottom-0 z-40 w-72 bg-[#0A0A0B]/85 border-l border-gold/15 flex flex-col px-8 pt-24 pb-12 md:hidden backdrop-blur-lg"
             >
               <nav className="flex flex-col gap-5 flex-1 overflow-y-auto pr-2 scrollbar-thin">
                 {MOBILE_NAV.map((item, i) => (

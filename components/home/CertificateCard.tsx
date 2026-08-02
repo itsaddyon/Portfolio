@@ -142,7 +142,7 @@ export function CertificateCard({ cert }: { cert: Certification }) {
   return (
     <div
       ref={cardRef}
-      className="group block border border-line rounded-xl overflow-hidden hover:border-ink-faint transition-colors duration-300 bg-canvas-raised"
+      className="group block border border-line rounded-xl overflow-hidden hover:border-ink-faint transition-colors duration-300 bg-canvas-raised tactile-press"
     >
       <a
         href={cert.pdf || cert.link}
@@ -185,7 +185,7 @@ export function CertificateCard({ cert }: { cert: Certification }) {
           </p>
           <div className="flex justify-between items-baseline mt-3">
             <p className="type-label text-ink-faint">{cert.issuer}</p>
-            <span className="type-label text-[10px] text-gold opacity-0 group-hover:opacity-100 transition-opacity duration-300 shrink-0">
+            <span className="type-label text-[10px] text-gold opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 shrink-0">
               {cert.pdf ? "View PDF ↗" : "Verify ↗"}
             </span>
           </div>

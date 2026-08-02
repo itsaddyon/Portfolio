@@ -38,8 +38,8 @@ export function Loader() {
       transition={{ duration: 0.8, ease: EASE_PREMIUM }}
     >
       {/* Initials */}
-      <motion.p
-        className="type-headline text-ink text-5xl md:text-7xl tracking-tightest"
+      <motion.h1
+        className="font-display text-ink text-7xl md:text-9xl tracking-tighter flex items-start select-none"
         initial={{ opacity: 0, y: 20, scale: 0.95 }}
         animate={{
           opacity: phase === "exit" ? 0 : 1,
@@ -48,8 +48,11 @@ export function Loader() {
         }}
         transition={{ duration: 0.8, ease: EASE_PREMIUM }}
       >
-        AA
-      </motion.p>
+        A
+        <span className="text-gold text-4xl md:text-6xl relative -top-3 md:-top-5 ml-0.5 select-none font-normal">
+          2
+        </span>
+      </motion.h1>
 
       {/* Gold accent sweep line */}
       <motion.div

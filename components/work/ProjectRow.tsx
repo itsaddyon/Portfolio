@@ -58,7 +58,7 @@ export function ProjectRow({
       <div
         onMouseEnter={enter}
         onMouseLeave={leave}
-        className="relative border-t border-line py-10 md:py-12"
+        className="relative border-t border-line py-10 md:py-12 tactile-press"
       >
         <motion.div
           className="pointer-events-none absolute inset-0 -z-10"
@@ -95,15 +95,21 @@ export function ProjectRow({
               </div>
             </div>
 
-            {project.logo && (
-              <div className="w-14 h-14 rounded-lg border border-line bg-canvas-raised flex items-center justify-center p-2 md:hidden shrink-0">
-                <img
-                  src={project.logo}
-                  alt={project.name}
-                  className="w-full h-full object-contain"
-                />
-              </div>
-            )}
+            <div className="flex items-center gap-3">
+              {project.logo && (
+                <div className="w-12 h-12 rounded-lg border border-line bg-canvas-raised flex items-center justify-center p-2 md:hidden shrink-0">
+                  <img
+                    src={project.logo}
+                    alt={project.name}
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+              )}
+              {/* Mobile-visible accent arrow to guide user click */}
+              <span className="type-label text-gold text-lg md:hidden shrink-0">
+                →
+              </span>
+            </div>
 
             <motion.span
               className="type-label text-ink hidden md:block"

@@ -7,13 +7,20 @@
   Nothing here should call attention to itself.
 */
 
-:root {
-  --font-display: "Fraunces", serif;
-  --font-body: "Inter", sans-serif;
-}
+
 
 * {
   border-color: theme("colors.line");
+  -webkit-tap-highlight-color: transparent;
+}
+
+.tactile-press {
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+}
+
+.tactile-press:active {
+  transform: scale(0.975);
+  opacity: 0.92;
 }
 
 html {
@@ -30,7 +37,7 @@ body {
 }
 
 ::selection {
-  background-color: theme("colors.ink");
+  background-color: theme("colors.gold");
   color: theme("colors.canvas");
 }
 

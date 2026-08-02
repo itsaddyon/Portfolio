@@ -93,6 +93,36 @@ export default function CaseStudyPage({ params }: { params: { slug: string } }) 
               </RevealText>
             )}
 
+            {project.downloadUrl && (
+              <RevealText delay={0.35}>
+                <Magnetic strength={8}>
+                  <a
+                    href={project.downloadUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className={`inline-block type-label border-b pb-1 ${accent.border} text-ink ${accent.hoverText} transition-colors duration-300`}
+                  >
+                    Download Launcher →
+                  </a>
+                </Magnetic>
+              </RevealText>
+            )}
+
+            {project.paperUrl && (
+              <RevealText delay={0.38}>
+                <Magnetic strength={8}>
+                  <a
+                    href={project.paperUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className={`inline-block type-label border-b pb-1 ${accent.border} text-ink ${accent.hoverText} transition-colors duration-300`}
+                  >
+                    Zenodo Publication →
+                  </a>
+                </Magnetic>
+              </RevealText>
+            )}
+
             {project.liveUrl && (
               <RevealText delay={0.4}>
                 <Magnetic strength={8}>

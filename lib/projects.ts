@@ -17,6 +17,8 @@ export type Project = {
   result: string;
   link?: string;
   liveUrl?: string;
+  downloadUrl?: string;
+  paperUrl?: string;
   logo?: string;
   screenshots?: { src: string; caption: string }[];
   stats?: { value: number; suffix?: string; prefix?: string; label: string; decimals?: number }[];
@@ -38,13 +40,14 @@ export const projects: Project[] = [
     challenges:
       "Early builds produced duplicate detections and race conditions in the review flow; these were resolved with a deduplication layer and stricter session-state handling. A biometric face-login module was built and hardened (multi-frame capture, median-distance voting) but is currently disconnected pending a broader security review.",
     result:
-      "Per IRIS's own benchmark documentation: 94.3% detection accuracy against 17,497 training images, sub-1-second response time, and a 5.7% false-positive rate — measured against a manual baseline of 60–80% accuracy and 10–30 minute response times.",
+      "Per IRIS's own benchmark documentation: 94.3% detection accuracy against 17,497 training images, sub-1-second response time, and a 5.7% false-positive rate — measured against a manual baseline of 60–80% accuracy and 10–30 minute response times. Currently drafting a research paper detailing the model architecture, published as a pre-print on Zenodo.",
     stats: [
       { value: 94.3, suffix: "%", label: "Detection Accuracy", decimals: 1 },
       { value: 17497, label: "Training Images" },
       { value: 1.0, prefix: "< ", suffix: "s", label: "Response Time", decimals: 1 }
     ],
     link: "https://github.com/itsaddyon/IRIS",
+    paperUrl: "https://doi.org/10.5281/zenodo.20868862",
     logo: "/images/iris-logo.png",
     screenshots: [
       { src: "/images/iris-dashboard.png", caption: "Field Dashboard — live inspection session, hardware status, detection counts by severity" },
@@ -131,6 +134,7 @@ export const projects: Project[] = [
       { value: 10, suffix: "+", label: "Certification Courses" }
     ],
     link: "https://github.com/itsaddyon/AEGIS",
+    downloadUrl: "https://github.com/itsaddyon/AEGIS/releases/download/v1.0.0/AEGIS_Launcher.exe",
     logo: "/images/aegis-logo.png",
     screenshots: [
       { src: "/images/aegis-dashboard.png", caption: "Security Console — command dashboard showing network packet flow metrics and alert events" },
