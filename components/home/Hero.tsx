@@ -49,9 +49,9 @@ export function Hero() {
                 delay={0.55}
                 className="type-subhead text-xl md:text-2xl mt-12 max-w-prose leading-relaxed"
               >
-                &ldquo;Curious enough to break things.<br></br>
-                Patient enough to rebuild them better.&rdquo;<br></br><br></br>
-                A Computer Science student, hackathon builder, and developer creating AI-powered products that make a real difference.
+                &ldquo;I don't just write code.<br></br>
+                I turn problems into working products.&rdquo;<br></br><br></br>
+                I turn real-world problems into usable, working software.
               </RevealText>
             </div>
 

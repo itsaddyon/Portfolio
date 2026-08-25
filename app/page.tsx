@@ -62,7 +62,7 @@ const experience = [
     role: "Front-End AI Engineering Intern",
     org: "FlyRank AI",
     period: "2026 — Present",
-    detail: "Building React.js components for a US-based AI startup.",
+    detail: "Applying my engineering skills to real AI products by building scalable React.js interfaces for a US-based startup.",
   },
   {
     role: "Tech Lead",
@@ -141,7 +141,8 @@ export default function Home() {
             <h2 className="font-display text-2xl md:text-3xl text-gold font-normal tracking-wide">About</h2>
             <div className="space-y-8 max-w-prose">
               <RevealText as="p" className="type-subhead text-lg md:text-xl leading-relaxed">
-                Hey! I'm a 1st Year B.Tech Computer Science student at Roorkee Institute of Technology. My work sits at the intersection of applied machine learning, systems engineering, and real-world deployment — building infrastructure that operates under constraint: intermittent connectivity, embedded hardware, multi-role access control, and latency requirements that don&apos;t bend.
+                A résumé lists what I've done. This space exists to prove what I can actually build.<br></br><br></br>
+                Hey! I'm a 2nd Year B.Tech Computer Science student at Roorkee Institute of Technology. My work sits at the intersection of applied machine learning, systems engineering, and real-world deployment — building infrastructure that operates under constraint: intermittent connectivity, embedded hardware, multi-role access control, and latency requirements that don&apos;t bend.
               </RevealText>
               <RevealText
                 as="p"

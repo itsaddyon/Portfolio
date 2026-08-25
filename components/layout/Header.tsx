@@ -111,6 +111,13 @@ export function Header() {
             >
               Résumé ↗
             </a>
+            <a
+              href="/#contact"
+              data-cursor="Open"
+              className="hidden md:inline-block type-label text-[#0A0A0B] bg-ink border border-ink px-5 py-2 rounded-full hover:bg-transparent hover:text-ink transition-colors duration-300 ml-3"
+            >
+              Let's build something ↗
+            </a>
 
             {/* Hamburger — mobile only */}
             <button
@@ -226,6 +233,16 @@ export function Header() {
               </motion.div>
 
               {/* Resume in drawer */}
+              <motion.a
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.36, duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                href="/#contact"
+                onClick={() => setOpen(false)}
+                className="type-label text-[#0A0A0B] bg-ink border border-ink px-5 py-3 rounded-full hover:bg-transparent hover:text-ink transition-colors duration-300 text-center mb-3"
+              >
+                Let's build something ↗
+              </motion.a>
               <motion.a
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}

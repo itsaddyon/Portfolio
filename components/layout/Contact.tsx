@@ -69,7 +69,7 @@ export function Contact() {
 
       <div className="mx-auto max-w-editorial relative">
         <RevealText as="p" className="type-label mb-10">
-          Let&apos;s work together
+          Start a conversation
         </RevealText>
 
         <RevealText
@@ -77,7 +77,7 @@ export function Contact() {
           delay={0.06}
           className="type-headline text-ink text-[10vw] md:text-[5vw] leading-[0.92] mb-6 max-w-3xl"
         >
-          Got something worth building?
+          Let&apos;s build something.
         </RevealText>
 
         {/* Copyable email */}
