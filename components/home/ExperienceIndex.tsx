@@ -5,19 +5,21 @@ import { createPortal } from "react-dom";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import Image from "next/image";
 
-type ExperienceItem = {
+export type ExperienceItem = {
   role: string;
   org: string;
   period: string;
   detail: string;
   link?: string;
   image?: string;
+  badge?: { label: string; text?: string; bg?: string };
+  subLinks?: { label: string; link: string }[];
 };
 
 /**
  * Interactive Experience section. Renders items, and for items with links
- * (like GDG Tech Lead), enables interactive hovers, cursor-follow image previews,
- * and click navigation. Static items remain styled identically but non-interactive.
+ * (like GDG Tech Lead or FlyRank Internship), enables interactive hovers,
+ * cursor-follow previews, sub-links, and click navigation.
  */
 export function ExperienceIndex({ items }: { items: ExperienceItem[] }) {
   const [active, setActive] = useState<ExperienceItem | null>(null);
@@ -67,13 +69,37 @@ export function ExperienceIndex({ items }: { items: ExperienceItem[] }) {
             </div>
           ) : (
             <div className="flex items-center gap-2 mb-3">
-              <div
-                className="w-6 h-6 rounded flex items-center justify-center text-[10px] font-bold text-white bg-accent"
-                style={{ background: "#4285F4" }}
-              >
-                G
-              </div>
-              <span className="type-label text-ink-faint">GDG Community</span>
+              {active.badge ? (
+                <>
+                  <div
+                    className="w-6 h-6 rounded flex items-center justify-center text-[10px] font-bold text-white"
+                    style={{ background: active.badge.bg || "#0A66C2" }}
+                  >
+                    {active.badge.text || "in"}
+                  </div>
+                  <span className="type-label text-ink-faint">{active.badge.label}</span>
+                </>
+              ) : active.link?.includes("linkedin.com") ? (
+                <>
+                  <div
+                    className="w-6 h-6 rounded flex items-center justify-center text-[10px] font-bold text-white"
+                    style={{ background: "#0A66C2" }}
+                  >
+                    in
+                  </div>
+                  <span className="type-label text-ink-faint">LinkedIn Post</span>
+                </>
+              ) : (
+                <>
+                  <div
+                    className="w-6 h-6 rounded flex items-center justify-center text-[10px] font-bold text-white bg-accent"
+                    style={{ background: "#4285F4" }}
+                  >
+                    G
+                  </div>
+                  <span className="type-label text-ink-faint">GDG Community</span>
+                </>
+              )}
             </div>
           )}
 
@@ -81,7 +107,9 @@ export function ExperienceIndex({ items }: { items: ExperienceItem[] }) {
             {active.role}
           </p>
           <p className="type-label text-ink-faint text-xs mt-1">{active.org}</p>
-          <p className="type-label text-ink-faint mt-3">View Profile →</p>
+          <p className="type-label text-ink-faint mt-3">
+            {active.link?.includes("linkedin.com") ? "View Post →" : "View Profile →"}
+          </p>
         </div>
       )}
     </motion.div>
@@ -94,13 +122,9 @@ export function ExperienceIndex({ items }: { items: ExperienceItem[] }) {
 
         if (isInteractive) {
           return (
-            <a
+            <div
               key={item.role}
-              href={item.link}
-              target="_blank"
-              rel="noreferrer"
-              data-cursor="Open"
-              className="block border-b border-line py-8 group transition-colors duration-300 hover:bg-canvas-raised/30 px-2 -mx-2"
+              className="border-b border-line py-8 group transition-colors duration-300 hover:bg-canvas-raised/30 px-2 -mx-2"
               onMouseEnter={() => setActive(item)}
               onMouseLeave={() => setActive(null)}
             >
@@ -110,16 +134,43 @@ export function ExperienceIndex({ items }: { items: ExperienceItem[] }) {
                 </span>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-baseline justify-between gap-4">
-                    <p className="type-subhead text-ink text-lg md:text-xl group-hover:text-accent transition-colors duration-300">
+                    <a
+                      href={item.link}
+                      target="_blank"
+                      rel="noreferrer"
+                      data-cursor="Open"
+                      className="type-subhead text-ink text-lg md:text-xl group-hover:text-accent transition-colors duration-300 hover:underline"
+                    >
                       {item.role} <span className="text-ink-faint">— {item.org}</span>
-                    </p>
-                    <span className="type-label text-ink-faint group-hover:text-ink transition-colors duration-300 shrink-0 hidden md:block">
-                      Profile →
-                    </span>
+                    </a>
+                    <a
+                      href={item.link}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="type-label text-ink-faint group-hover:text-ink transition-colors duration-300 shrink-0 hidden md:block hover:text-gold"
+                    >
+                      {item.link?.includes("linkedin.com") ? "LinkedIn →" : "Profile →"}
+                    </a>
                   </div>
                   <p className="type-subhead text-ink-muted text-sm mt-1 max-w-prose group-hover:text-ink transition-colors duration-300">
                     {item.detail}
                   </p>
+                  {item.subLinks && item.subLinks.length > 0 && (
+                    <div className="mt-3 flex flex-wrap gap-4">
+                      {item.subLinks.map((sub) => (
+                        <a
+                          key={sub.label}
+                          href={sub.link}
+                          target="_blank"
+                          rel="noreferrer"
+                          data-cursor="Open"
+                          className="type-label text-xs text-gold hover:text-gold-bright transition-colors border-b border-gold/40 pb-0.5"
+                        >
+                          {sub.label} ↗
+                        </a>
+                      ))}
+                    </div>
+                  )}
                   {item.image && (
                     <div className="mt-4 w-full aspect-[16/9] max-w-sm rounded-lg overflow-hidden border border-line bg-canvas md:hidden relative">
                       <Image
@@ -134,7 +185,7 @@ export function ExperienceIndex({ items }: { items: ExperienceItem[] }) {
                   )}
                 </div>
               </div>
-            </a>
+            </div>
           );
         }
 

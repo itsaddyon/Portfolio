@@ -8,7 +8,7 @@ import { RecognitionIndex } from "@/components/home/RecognitionIndex";
 import { CapabilitiesGrid } from "@/components/home/CapabilitiesGrid";
 import { GitHubActivity } from "@/components/home/GitHubActivity";
 import { CertificateCard } from "@/components/home/CertificateCard";
-import { ExperienceIndex } from "@/components/home/ExperienceIndex";
+import { ExperienceIndex, type ExperienceItem } from "@/components/home/ExperienceIndex";
 import { projects } from "@/lib/projects";
 
 const capabilities = [
@@ -19,6 +19,24 @@ const capabilities = [
 ];
 
 const recognition = [
+  {
+    title: "Best Paper Award — IIRA 6.0 International Conference",
+    detail: "Awarded Best Paper for research paper 'IRIS: Intelligent Road Inspection System — A Real-Time Edge-AI Platform for Pothole Detection, Severity Classification, and Human-in-the-Loop Municipal Reporting' at IIRA 6.0 (MIT Moradabad).",
+    link: "https://www.linkedin.com/posts/itsaddyon_iira60-research-edgeai-ugcPost-7518270230821830656-Ln78/",
+    image: "/images/rec-iira.png",
+  },
+  {
+    title: "Project IRIS Showcase — Hon'ble CM Shri Pushkar Singh Dhami Ji",
+    detail: "Demonstrated IRIS's real-time edge AI pothole detection and automated municipal road inspection system directly to the Chief Minister of Uttarakhand, Shri Pushkar Singh Dhami Ji, at the CII 7th Industrial Expo in Haridwar.",
+    link: "https://www.facebook.com/share/v/1EWzQgTE8Y/",
+    image: "/images/rec-cm-dhami.png",
+  },
+  {
+    title: "AI Manthan Champion — Team Grey Hats",
+    detail: "First place and champion trophy at AI Manthan with IRIS, organized collaboratively by GDGoC, AWS SBG, IEEE Student Branch, and Dept of CSE at RIT Roorkee.",
+    link: "https://www.linkedin.com/posts/itsaddyon_aimanthan-greyhats-ritroorkee-ugcPost-7511485993393381376-2FIa/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFYr2oEBK7FdxJfbkTgnmDF8w3Fd7KRsuUQ",
+    image: "/images/rec-aimanthan.png",
+  },
   {
     title: "IBM Best Project Award",
     detail: "Awarded 'Best Project' in a corporate industry training program with IBM, selected among all participants.",
@@ -57,20 +75,58 @@ const recognition = [
   },
 ];
 
-const experience = [
+const experience: ExperienceItem[] = [
+  {
+    role: "Lead Researcher & Paper Author",
+    org: "IRIS Project · IIRA 6.0",
+    period: "2026",
+    detail: "Authored and presented peer-reviewed research on 'IRIS: Intelligent Road Inspection System — A Real-Time Edge-AI Platform for Pothole Detection, Severity Classification, and Human-in-the-Loop Municipal Reporting' at the IIRA 6.0 International Conference (MIT Moradabad), winning the Best Paper Award. Research published on Zenodo.",
+    link: "https://www.linkedin.com/posts/itsaddyon_iira60-research-edgeai-ugcPost-7518270230821830656-Ln78/",
+    image: "/images/rec-iira.png",
+    badge: { label: "Best Paper Award", text: "🏆", bg: "#C5A880" },
+    subLinks: [
+      {
+        label: "Best Paper Award Post",
+        link: "https://www.linkedin.com/posts/itsaddyon_iira60-research-edgeai-ugcPost-7518270230821830656-Ln78/",
+      },
+      {
+        label: "Zenodo Publication",
+        link: "https://doi.org/10.5281/zenodo.20868862",
+      },
+    ],
+  },
   {
     role: "Front-End AI Engineering Intern",
     org: "FlyRank AI",
-    period: "2026 — Present",
-    detail: "Applying my engineering skills to real AI products by building scalable React.js interfaces for a US-based startup.",
+    period: "July 2026 — Sep 2026",
+    detail: "Completed an intensive Front-End AI Engineering program for a US-based startup. Built scalable React.js architectures across 10 production assignments covering site foundations, responsive storefront patterns, AI implementation QA, and a capstone AI product. Awarded completion certificate and Letter of Recommendation from Founder & CEO Alen Malkoč.",
+    link: "https://www.linkedin.com/posts/itsaddyon_flyrank-ai-internship-completion-certificate-ugcPost-7502807383627173888-0uDe/",
+    image: "/images/exp-flyrank.png",
+    badge: { label: "FlyRank AI", text: "in", bg: "#0A66C2" },
+    subLinks: [
+      {
+        label: "Completion Certificate",
+        link: "https://www.linkedin.com/posts/itsaddyon_flyrank-ai-internship-completion-certificate-ugcPost-7502807383627173888-0uDe/",
+      },
+      {
+        label: "Recommendation Letter",
+        link: "https://www.linkedin.com/posts/itsaddyon_recommendation-letter-ugcPost-7506775642198208512-kVCD/",
+      },
+    ],
   },
   {
     role: "Tech Lead",
     org: "GDGoC RIT (Google Developer Groups on Campus)",
     period: "2025 — Present",
-    detail: "Organizing and Hosting Technical Events under Google Developers Group",
+    detail: "Organizing and hosting technical events, leading developer tracks, and architecting community web infrastructure under Google Developers Group.",
     link: "https://gdg.community.dev/u/mzwsvd/#/about",
     image: "/images/rec-gdg.png",
+    subLinks: [
+      {
+        label: "GDGoC RIT Platform",
+        link: "https://gdgrit.vercel.app",
+      },
+    ],
   },
   {
     role: "Project Lead & Backend Developer",
@@ -164,36 +220,6 @@ export default function Home() {
         </SectionStage>
       </section>
 
-      <section className="px-6 md:px-10 pb-28 md:pb-40">
-        <SectionStage>
-          <div className="mx-auto max-w-editorial grid md:grid-cols-[auto_1fr] gap-6 md:gap-16">
-            <h2 className="font-display text-2xl md:text-3xl text-gold font-normal tracking-wide">Philosophy</h2>
-            <div className="space-y-8 max-w-prose">
-              <RevealText as="p" className="type-subhead text-lg md:text-xl leading-relaxed">
-                I never start with a programming language.<br></br>
-
-                <br></br>I start with a problem.<br></br>
-                <br></br>
-                Every project begins by understanding what's broken, why it matters, and who it affects. Only then do I decide what to build and which tools deserve a place in the solution.<br></br>
-
-                <br></br>Whether it's designing AI that understands roads, improving healthcare accessibility, or building secure full-stack systems, I care more about solving the right problem than using the newest technology.<br></br>
-                <br></br>
-                I build software that people can trust, maintain, and grow—not software that's impressive for a single demonstration.<br></br><br></br>
-              </RevealText>
-              <RevealText
-                as="p"
-                delay={0.1}
-                className="type-subhead text-lg md:text-xl leading-relaxed"
-              >
-                Each project here was independently architected, engineered, and shipped — spanning the full stack from ML pipeline tuning and real-time WebSocket infrastructure to PyInstaller packaging and Firebase security rule design. <br></br><br></br>
-                <b>"I write software I intend to maintain, not prototypes staged for a demo."</b>
-
-              </RevealText>
-            </div>
-          </div>
-        </SectionStage>
-      </section>
-
       <section id="status" className="px-6 md:px-10 pb-20 md:pb-28 border-t border-line pt-20 md:pt-28">
         <SectionStage>
           <div className="mx-auto max-w-editorial grid md:grid-cols-[auto_1fr] gap-6 md:gap-16">
@@ -204,10 +230,16 @@ export default function Home() {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-gold/40 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-gold"></span>
                 </span>
-                <span className="type-label text-gold-bright font-semibold tracking-widest uppercase text-[10px]">Currently working on</span>
+                <span className="type-label text-gold-bright font-semibold tracking-widest uppercase text-[10px]">Active Focus & Research</span>
               </div>
               <RevealText as="p" className="type-subhead text-lg md:text-xl leading-relaxed text-ink-muted">
-                Currently drafting a research paper for <strong className="text-ink font-semibold">IRIS</strong> (Intelligent Road Inspection System), detailing its real-time computer vision pipeline and municipal review workflow. The project is open-access and published on Zenodo (<a href="https://doi.org/10.5281/zenodo.20868862" target="_blank" rel="noopener noreferrer" className="text-gold hover:text-gold-bright transition-colors duration-300 border-b border-gold/40 pb-0.5">doi.org/10.5281/zenodo.20868862</a>). Simultaneously, building user interfaces for AI products as a Front-End AI Engineering Intern at <strong className="text-ink font-semibold">FlyRank AI</strong>.
+                Recently presented and published research for <strong className="text-ink font-semibold">IRIS</strong> (Intelligent Road Inspection System) at the <strong className="text-ink font-semibold">IIRA 6.0</strong> International Conference (MIT Moradabad), winning the <span className="text-gold font-medium">Best Paper Award</span> for real-time edge computer vision and human-in-the-loop municipal reporting (<a href="https://doi.org/10.5281/zenodo.20868862" target="_blank" rel="noopener noreferrer" className="text-gold hover:text-gold-bright transition-colors duration-300 border-b border-gold/40 pb-0.5">Zenodo</a> · <a href="https://www.linkedin.com/posts/itsaddyon_iira60-research-edgeai-ugcPost-7518270230821830656-Ln78/" target="_blank" rel="noopener noreferrer" className="text-gold hover:text-gold-bright transition-colors duration-300 border-b border-gold/40 pb-0.5">Paper Award</a>).
+              </RevealText>
+              <RevealText as="p" delay={0.08} className="type-subhead text-lg md:text-xl leading-relaxed text-ink-muted">
+                Currently engineering a brand-new, scaled architecture of <strong className="text-ink font-semibold">Sidechicks</strong> (SidekickAI v2) to support expanding user scale with distributed real-time sync. Concurrently developing <strong className="text-ink font-semibold">UNVEIL-AI</strong> (<em>Unified Network for Veiled-actor Evidence & Identity Linking</em>) for Smart India Hackathon (<span className="text-gold">PS: SIH26151</span> / NTRO) — an intelligence graph and probabilistic attribution platform for dark-web threat actors (<a href="https://github.com/itsaddyon/UNVEIL-AI" target="_blank" rel="noopener noreferrer" className="text-gold hover:text-gold-bright transition-colors duration-300 border-b border-gold/40 pb-0.5">GitHub</a>).
+              </RevealText>
+              <RevealText as="p" delay={0.14} className="type-subhead text-lg md:text-xl leading-relaxed text-ink-muted">
+                Also actively researching cognitive architectures, developmental thought processes, and psychological dynamics in AI and AGI — with daily observations and reflections synthesized and published autonomously by an AI agent on <a href="https://itsaddyon.github.io/human-nature" target="_blank" rel="noopener noreferrer" className="text-gold hover:text-gold-bright transition-colors duration-300 border-b border-gold/40 pb-0.5">Human Nature</a>.
               </RevealText>
             </div>
           </div>

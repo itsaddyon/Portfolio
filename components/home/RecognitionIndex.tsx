@@ -60,20 +60,36 @@ export function RecognitionIndex({ items }: { items: RecognitionItem[] }) {
             </div>
           ) : (
             <div className="flex items-center gap-2 mb-3">
-              <div
-                className="w-6 h-6 rounded flex items-center justify-center text-[11px] font-bold text-white"
-                style={{ background: "#0A66C2" }}
-              >
-                in
-              </div>
-              <span className="type-label text-ink-faint">LinkedIn post</span>
+              {active.link.includes("facebook.com") ? (
+                <>
+                  <div
+                    className="w-6 h-6 rounded flex items-center justify-center text-[12px] font-bold text-white"
+                    style={{ background: "#1877F2" }}
+                  >
+                    f
+                  </div>
+                  <span className="type-label text-ink-faint">Facebook video</span>
+                </>
+              ) : (
+                <>
+                  <div
+                    className="w-6 h-6 rounded flex items-center justify-center text-[11px] font-bold text-white"
+                    style={{ background: "#0A66C2" }}
+                  >
+                    in
+                  </div>
+                  <span className="type-label text-ink-faint">LinkedIn post</span>
+                </>
+              )}
             </div>
           )}
 
           <p className="type-subhead text-ink text-sm leading-snug line-clamp-3">
             {active.title}
           </p>
-          <p className="type-label text-ink-faint mt-3">View post →</p>
+          <p className="type-label text-ink-faint mt-3">
+            {active.link.includes("facebook.com") ? "Watch video →" : "View post →"}
+          </p>
         </div>
       )}
     </motion.div>
@@ -110,7 +126,7 @@ export function RecognitionIndex({ items }: { items: RecognitionItem[] }) {
               )}
             </div>
             <span className="type-label text-ink-faint group-hover:text-ink transition-colors duration-300 shrink-0 hidden md:block">
-              LinkedIn →
+              {item.link.includes("facebook.com") ? "Facebook →" : "LinkedIn →"}
             </span>
           </div>
         </a>

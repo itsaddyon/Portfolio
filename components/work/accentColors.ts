@@ -37,4 +37,25 @@ export const accentClasses: Record<
     border: "border-project-aegis/40",
     glow: "#5B7FB3",
   },
+  unveil: {
+    text: "text-[#7EA5DC]",
+    hoverText: "hover:text-[#7EA5DC]",
+    bgSoft: "bg-[#5B7FB3]/10",
+    border: "border-[#5B7FB3]/40",
+    glow: "#5B7FB3",
+  },
+  humannature: {
+    text: "text-[#F0D39A]",
+    hoverText: "hover:text-[#F0D39A]",
+    bgSoft: "bg-[#E8C547]/10",
+    border: "border-[#E8C547]/40",
+    glow: "#E8C547",
+  },
+  gdgrit: {
+    text: "text-[#6AA8FF]",
+    hoverText: "hover:text-[#6AA8FF]",
+    bgSoft: "bg-[#4285F4]/10",
+    border: "border-[#4285F4]/40",
+    glow: "#4285F4",
+  },
 };

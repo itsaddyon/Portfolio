@@ -53,75 +53,90 @@ export function ProjectRow({
     };
   }, []);
 
-  return (
-    <Link href={`/work/${project.slug}`} className="block" data-cursor="View">
-      <div
-        onMouseEnter={enter}
-        onMouseLeave={leave}
-        className="relative border-t border-line py-10 md:py-12 tactile-press"
-      >
-        <motion.div
-          className="pointer-events-none absolute inset-0 -z-10"
-          initial={false}
-          animate={{ opacity: hovered ? 1 : 0 }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          style={{
-            background: `radial-gradient(60% 100% at 0% 50%, ${accent.glow}14, transparent)`,
-          }}
-        />
+  const href = project.externalUrl ?? `/work/${project.slug}`;
+  const isExternal = !!project.externalUrl;
 
-        <Magnetic strength={6}>
-          <div className="flex items-center justify-between gap-4 md:gap-10">
-            <div className="flex items-baseline gap-6 md:gap-10 flex-1 min-w-0">
-              <span className="type-label text-ink-faint hidden md:block w-8">
-                {String(index + 1).padStart(2, "0")}
-              </span>
+  const content = (
+    <div
+      onMouseEnter={enter}
+      onMouseLeave={leave}
+      className="relative border-t border-line py-10 md:py-12 tactile-press"
+    >
+      <motion.div
+        className="pointer-events-none absolute inset-0 -z-10"
+        initial={false}
+        animate={{ opacity: hovered ? 1 : 0 }}
+        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+        style={{
+          background: `radial-gradient(60% 100% at 0% 50%, ${accent.glow}14, transparent)`,
+        }}
+      />
 
-              <div className="flex-1 min-w-0">
-                <div className="flex flex-wrap items-baseline gap-x-5 gap-y-2">
-                  <h3 className="type-headline text-3xl md:text-6xl text-ink">
-                    {project.name}
-                  </h3>
-                  <span className={`type-label ${accent.text}`}>{project.tagline}</span>
-                </div>
-                <motion.p
-                  className="type-subhead mt-3 max-w-prose overflow-hidden text-sm md:text-base"
-                  initial={false}
-                  animate={{ opacity: isMobile ? 0.95 : (hovered ? 1 : 0.55) }}
-                  transition={{ duration: 0.4 }}
-                >
-                  {project.summary}
-                </motion.p>
+      <Magnetic strength={6}>
+        <div className="flex items-center justify-between gap-4 md:gap-10">
+          <div className="flex items-baseline gap-6 md:gap-10 flex-1 min-w-0">
+            <span className="type-label text-ink-faint hidden md:block w-8">
+              {String(index + 1).padStart(2, "0")}
+            </span>
+
+            <div className="flex-1 min-w-0">
+              <div className="flex flex-wrap items-baseline gap-x-5 gap-y-2">
+                <h3 className="type-headline text-3xl md:text-6xl text-ink">
+                  {project.name}
+                </h3>
+                <span className={`type-label ${accent.text}`}>{project.tagline}</span>
               </div>
+              <motion.p
+                className="type-subhead mt-3 max-w-prose overflow-hidden text-sm md:text-base"
+                initial={false}
+                animate={{ opacity: isMobile ? 0.95 : (hovered ? 1 : 0.55) }}
+                transition={{ duration: 0.4 }}
+              >
+                {project.summary}
+              </motion.p>
             </div>
-
-            <div className="flex items-center gap-3">
-              {project.logo && (
-                <div className="w-12 h-12 rounded-lg border border-line bg-canvas-raised flex items-center justify-center p-2 md:hidden shrink-0">
-                  <img
-                    src={project.logo}
-                    alt={project.name}
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-              )}
-              {/* Mobile-visible accent arrow to guide user click */}
-              <span className="type-label text-gold text-lg md:hidden shrink-0">
-                →
-              </span>
-            </div>
-
-            <motion.span
-              className="type-label text-ink hidden md:block"
-              initial={false}
-              animate={{ x: hovered ? 0 : -8, opacity: hovered ? 1 : 0 }}
-              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            >
-              View →
-            </motion.span>
           </div>
-        </Magnetic>
-      </div>
+
+          <div className="flex items-center gap-3">
+            {project.logo && (
+              <div className="w-12 h-12 rounded-lg border border-line bg-canvas-raised flex items-center justify-center p-2 md:hidden shrink-0">
+                <img
+                  src={project.logo}
+                  alt={project.name}
+                  className="w-full h-full object-contain"
+                />
+              </div>
+            )}
+            {/* Mobile-visible accent arrow to guide user click */}
+            <span className="type-label text-gold text-lg md:hidden shrink-0">
+              {isExternal ? "↗" : "→"}
+            </span>
+          </div>
+
+          <motion.span
+            className="type-label text-ink hidden md:block"
+            initial={false}
+            animate={{ x: hovered ? 0 : -8, opacity: hovered ? 1 : 0 }}
+            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+          >
+            {isExternal ? "Visit ↗" : "View →"}
+          </motion.span>
+        </div>
+      </Magnetic>
+    </div>
+  );
+
+  if (isExternal) {
+    return (
+      <a href={href} target="_blank" rel="noreferrer" className="block" data-cursor="Open">
+        {content}
+      </a>
+    );
+  }
+
+  return (
+    <Link href={href} className="block" data-cursor="View">
+      {content}
     </Link>
   );
 }

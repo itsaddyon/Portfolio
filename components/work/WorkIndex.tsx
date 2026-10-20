@@ -20,9 +20,15 @@ export function WorkIndex({ projects }: { projects: Project[] }) {
   const springX = useSpring(x, { stiffness: 220, damping: 26, mass: 0.6 });
   const springY = useSpring(y, { stiffness: 220, damping: 26, mass: 0.6 });
 
+  const [imgError, setImgError] = useState(false);
+
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  useEffect(() => {
+    setImgError(false);
+  }, [active]);
 
   const previewSrc = active?.logo ?? null;
 
@@ -36,30 +42,42 @@ export function WorkIndex({ projects }: { projects: Project[] }) {
       className="pointer-events-none fixed left-0 top-0 z-[9999]"
       style={{ x: springX, y: springY }}
       initial={false}
-      animate={{ opacity: previewSrc ? 1 : 0, scale: previewSrc ? 1 : 0.92 }}
+      animate={{ opacity: active ? 1 : 0, scale: active ? 1 : 0.92 }}
       transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
     >
-      {previewSrc && (
+      {active && (
         <div className="w-64 h-40 rounded-lg overflow-hidden border border-line shadow-2xl bg-canvas-raised flex items-center justify-center p-6">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={previewSrc}
-              initial={{ opacity: 0, scale: 1.06 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.97 }}
-              transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-              className="w-full h-full"
-            >
-              <Image
-                src={previewSrc}
-                alt=""
-                width={256}
-                height={160}
-                className="w-full h-full object-contain"
-                priority
-              />
-            </motion.div>
-          </AnimatePresence>
+          {previewSrc && !imgError ? (
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={previewSrc}
+                initial={{ opacity: 0, scale: 1.06 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.97 }}
+                transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                className="w-full h-full flex items-center justify-center"
+              >
+                <Image
+                  src={previewSrc}
+                  alt={`${active.name} logo`}
+                  width={256}
+                  height={160}
+                  className="w-full h-full object-contain"
+                  onError={() => setImgError(true)}
+                  priority
+                />
+              </motion.div>
+            </AnimatePresence>
+          ) : (
+            <div className="flex flex-col items-center justify-center text-center p-4">
+              <span className="font-display text-2xl text-gold mb-1 font-semibold">
+                {active.name}
+              </span>
+              <span className="type-label text-ink-faint text-[10px] tracking-wider uppercase">
+                {active.tagline}
+              </span>
+            </div>
+          )}
         </div>
       )}
     </motion.div>
