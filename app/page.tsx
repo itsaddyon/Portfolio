@@ -77,9 +77,24 @@ const recognition = [
 
 const experience: ExperienceItem[] = [
   {
+    role: "Google Student Ambassador",
+    org: "Google",
+    period: "Nov 2026 - Present",
+    detail: "I have been appointed as Google Student Ambassador in November 2026. Selected among highly competitive candidates and been managing the responsibilities for the Google Student Ambassador. GID: 15562",
+    link: "https://www.linkedin.com/posts/itsaddyon_teamgemini-googlestudentambassador-gsa2026-share-7526252797575487488-Yk90/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFYr2oEBK7FdxJfbkTgnmDF8w3Fd7KRsuUQ",
+    image: "/images/gsa.png",
+    badge: { label: "Google Student Ambassador", text: "🏆", bg: "#eea239ff" },
+    subLinks: [
+      {
+        label: "GSA Post",
+        link: "https://www.linkedin.com/posts/itsaddyon_teamgemini-googlestudentambassador-gsa2026-share-7526252797575487488-Yk90/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFYr2oEBK7FdxJfbkTgnmDF8w3Fd7KRsuUQ",
+      },
+    ],
+  },
+  {
     role: "Lead Researcher & Paper Author",
     org: "IRIS Project · IIRA 6.0",
-    period: "2026",
+    period: "Sep 2026",
     detail: "Authored and presented peer-reviewed research on 'IRIS: Intelligent Road Inspection System — A Real-Time Edge-AI Platform for Pothole Detection, Severity Classification, and Human-in-the-Loop Municipal Reporting' at the IIRA 6.0 International Conference (MIT Moradabad), winning the Best Paper Award. Research published on Zenodo.",
     link: "https://www.linkedin.com/posts/itsaddyon_iira60-research-edgeai-ugcPost-7518270230821830656-Ln78/",
     image: "/images/rec-iira.png",
@@ -117,7 +132,7 @@ const experience: ExperienceItem[] = [
   {
     role: "Tech Lead",
     org: "GDGoC RIT (Google Developer Groups on Campus)",
-    period: "2025 — Present",
+    period: "Jan 2026 — Present",
     detail: "Organizing and hosting technical events, leading developer tracks, and architecting community web infrastructure under Google Developers Group.",
     link: "https://gdg.community.dev/u/mzwsvd/#/about",
     image: "/images/rec-gdg.png",
@@ -137,6 +152,24 @@ const experience: ExperienceItem[] = [
 ];
 
 const certifications = [
+  {
+    title: "Best Paper Award at IIRA 6.0",
+    issuer: "6th International Conference on \"Innovation in IoT, Research and Automations (IIRA 6.0)\" (MIT Moradabad)",
+    link: "https://www.linkedin.com/in/itsaddyon/overlay/Certifications/1860882622/treasury/?profileId=ACoAAFYr2oEBK7FdxJfbkTgnmDF8w3Fd7KRsuUQ&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3B1ACTlEODQ1mtn6L1MYj%2BqQ%3D%3D",
+    pdf: "/certs/cert-bp.pdf",
+  },
+  {
+    title: "Internship Completion Certificate",
+    issuer: "FlyRank AI",
+    link: "https://www.linkedin.com/in/itsaddyon/overlay/Certifications/2102964816/treasury/?profileId=ACoAAFYr2oEBK7FdxJfbkTgnmDF8w3Fd7KRsuUQ&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BrTqvYtYRT3uaR4NpOha7Hw%3D%3D",
+    pdf: "/certs/flyrank-completion-certificate.pdf",
+  },
+  {
+    title: "Letter of Recommendation",
+    issuer: "FlyRank AI",
+    link: "https://www.linkedin.com/in/itsaddyon/overlay/Certifications/901129827/treasury/?profileId=ACoAAFYr2oEBK7FdxJfbkTgnmDF8w3Fd7KRsuUQ&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BrTqvYtYRT3uaR4NpOha7Hw%3D%3D",
+    pdf: "/certs/recommendation.pdf",
+  },
   {
     title: "Certificate for the Completion of C Training",
     issuer: "IIT Bombay",
@@ -161,6 +194,12 @@ const certifications = [
     issuer: "Google Developers Launchpad",
     link: "https://www.linkedin.com/in/itsaddyon/overlay/Certifications/1536028762/treasury/?profileId=ACoAAFYr2oEBK7FdxJfbkTgnmDF8w3Fd7KRsuUQ&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3B7r1T%2FehSTtWFVr%2FVooEuDA%3D%3D",
     pdf: "/certs/cert-advanced-hacking.pdf",
+  },
+  {
+    title: "First paper published while in 2nd year on IRIS",
+    issuer: "6th International Conference on \"Innovation in IoT, Research and Automations (IIRA 6.0)\" (MIT Moradabad)",
+    link: "https://www.linkedin.com/in/itsaddyon/overlay/Certifications/1860882622/treasury/?profileId=ACoAAFYr2oEBK7FdxJfbkTgnmDF8w3Fd7KRsuUQ&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BrTqvYtYRT3uaR4NpOha7Hw%3D%3D",
+    pdf: "/certs/research-paper.pdf",
   },
   {
     title: "Certificate of Completion in Python Programming",
