@@ -109,7 +109,7 @@ export function Header() {
               data-cursor="Open"
               className="hidden md:inline-block type-label text-ink-faint border border-line px-4 py-2 rounded-full hover:text-gold hover:border-gold/40 transition-colors duration-300"
             >
-              Résumé ↗
+              Resume ↗
             </a>
             <a
               href="/#contact"
@@ -252,7 +252,7 @@ export function Header() {
                 rel="noreferrer"
                 className="type-label text-ink-faint border border-line px-5 py-3 rounded-full hover:text-gold hover:border-gold/45 transition-colors duration-300 text-center"
               >
-                Download Résumé ↗
+                Download Resume ↗
               </motion.a>
             </motion.div>
           </>

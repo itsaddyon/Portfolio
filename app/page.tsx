@@ -51,13 +51,13 @@ const recognition = [
   },
   {
     title: "Institutional Hackathon Champion",
-    detail: "24-hour format, first place among all competing teams, with Team Grey Hats.",
+    detail: "24-hour format, winner among all competing teams, with Team Grey Hats.",
     link: "https://www.linkedin.com/posts/itsaddyon_24hourchallenge-teamgreyhats-medibridge-activity-7398280976780607488-bsrq",
     image: "/images/rec-hackathon.png",
   },
   {
     title: "GeeksforGeeks × RIT Hackathon Winner",
-    detail: "First place, GFG x RIT hackathon, with Team Grey Hats.",
+    detail: "Winner, GFG x RIT hackathon, with Team Grey Hats.",
     link: "https://www.linkedin.com/posts/itsaddyon_hackathonjourney-gfgxrit-greyhats-activity-7398821844549656576-Ow0w",
     image: "/images/rec-gfg.png",
   },
@@ -154,9 +154,23 @@ const experience: ExperienceItem[] = [
 const certifications = [
   {
     title: "Best Paper Award at IIRA 6.0",
-    issuer: "6th International Conference on \"Innovation in IoT, Research and Automations (IIRA 6.0)\" (MIT Moradabad)",
+    issuer: "6th International Conference on \"Innovation in IoT, Research and Automations (IIRA 6.0)\"",
     link: "https://www.linkedin.com/in/itsaddyon/overlay/Certifications/1860882622/treasury/?profileId=ACoAAFYr2oEBK7FdxJfbkTgnmDF8w3Fd7KRsuUQ&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3B1ACTlEODQ1mtn6L1MYj%2BqQ%3D%3D",
     pdf: "/certs/cert-bp.pdf",
+  },
+  {
+    title: "Claude 101",
+    issuer: "Anthropic",
+    link: "https://www.linkedin.com/safety/go/?url=https%3A%2F%2Fverify.skilljar.com%2Fc%2F86wfw7gincqh&urlhash=Zr_m&mt=LXROfghUimpsjoQSwTwT0xo5SBSSko7Xm2NgrtRcNH2d2epNSAWN0HxmWqmxeZAF2jms_MIpxpv3Uyqmt9PaP1ZtZny7uhGlHFpxur_tvsTEH1ARnFr6KK9HROPcBoIEpvLRYrIIgVL8rfMo2pJA9NNDBV4LjARNFfEvQ-o9qvwb8OLGfozPgK1TOTF5_45T9Zqs&isSdui=true&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BK7RIkf1qT9yaEe4xMHZ4Bw%3D%3D",
+    pdf: null,
+    image: "/images/claude101.png",
+  },
+  {
+    title: "AI Fluency",
+    issuer: "Anthropic",
+    link: "https://www.linkedin.com/in/itsaddyon/overlay/Certifications/1979922293/treasury/?profileId=ACoAAFYr2oEBK7FdxJfbkTgnmDF8w3Fd7KRsuUQ&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BC3UswqNqSeSCnKiah7Y8mA%3D%3D",
+    pdf: null,
+    image: "/images/aifluency.png",
   },
   {
     title: "Internship Completion Certificate",
@@ -197,7 +211,7 @@ const certifications = [
   },
   {
     title: "First paper published while in 2nd year on IRIS",
-    issuer: "6th International Conference on \"Innovation in IoT, Research and Automations (IIRA 6.0)\" (MIT Moradabad)",
+    issuer: "6th International Conference on \"Innovation in IoT, Research and Automations (IIRA 6.0)\"",
     link: "https://www.linkedin.com/in/itsaddyon/overlay/Certifications/1860882622/treasury/?profileId=ACoAAFYr2oEBK7FdxJfbkTgnmDF8w3Fd7KRsuUQ&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BrTqvYtYRT3uaR4NpOha7Hw%3D%3D",
     pdf: "/certs/research-paper.pdf",
   },
@@ -236,7 +250,7 @@ export default function Home() {
             <h2 className="font-display text-2xl md:text-3xl text-gold font-normal tracking-wide">About</h2>
             <div className="space-y-8 max-w-prose">
               <RevealText as="p" className="type-subhead text-lg md:text-xl leading-relaxed">
-                A résumé lists what I've done. This space exists to prove what I can actually build.<br></br><br></br>
+                A resume lists what I've done. This space exists to prove what I can actually build.<br></br><br></br>
                 Hey! I'm a 2nd Year B.Tech Computer Science student at Roorkee Institute of Technology. My work sits at the intersection of applied machine learning, systems engineering, and real-world deployment — building infrastructure that operates under constraint: intermittent connectivity, embedded hardware, multi-role access control, and latency requirements that don&apos;t bend.
               </RevealText>
               <RevealText
