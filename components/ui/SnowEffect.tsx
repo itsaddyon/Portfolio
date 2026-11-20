@@ -23,7 +23,7 @@ export function SnowEffect() {
         >
             <Snowfall
                 snowflakeCount={150}
-                color="#c5a880"                // Your portfolio's exact theme gold
+                color="#f9f8f7ff"                // Your portfolio's exact theme gold
                 radius={[1.8, 1.8]}            // Micro-sized particles (feels like lit dust/embers)
                 speed={[0.4, 1.2]}             // Slow, deliberate descent
                 wind={[-0.2, 0.4]}             // Very gentle ambient breeze
