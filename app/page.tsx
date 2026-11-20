@@ -235,10 +235,6 @@ const certifications = [
   },
 ] as const;
 
-/**
- * Homepage: hero, then the work index. Each row in the index links to
- * its own case-study route under /work/[slug].
- */
 export default function Home() {
   return (
     <PageShell>

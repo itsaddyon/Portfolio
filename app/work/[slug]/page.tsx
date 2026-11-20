@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+
 import Image from "next/image";
 import { projects, getProject } from "@/lib/projects";
 import { accentClasses } from "@/components/work/accentColors";
@@ -9,10 +10,11 @@ import { CaseStudySection } from "@/components/work/CaseStudySection";
 import { Magnetic } from "@/components/ui/Magnetic";
 import { ImageReveal } from "@/components/ui/ImageReveal";
 import { StatCounter } from "@/components/ui/StatCounter";
-
+import { SnowEffect } from "@/components/ui/SnowEffect";
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
 }
+
 
 export function generateMetadata({ params }: { params: { slug: string } }) {
   const project = getProject(params.slug);
@@ -47,6 +49,7 @@ export default function CaseStudyPage({ params }: { params: { slug: string } }) 
 
   return (
     <PageShell>
+      <SnowEffect />
       <section className="relative px-6 md:px-10 pt-40 md:pt-48 pb-20 overflow-hidden">
         <div
           className="pointer-events-none absolute left-1/2 top-24 -translate-x-1/2 w-[60vw] h-[60vw] max-w-[700px] max-h-[700px] rounded-full opacity-[0.09] blur-[110px]"
